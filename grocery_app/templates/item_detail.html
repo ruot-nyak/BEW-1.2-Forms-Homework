@@ -11,6 +11,18 @@
 
 <p><strong>Store:</strong> {{ item.store.title }}</p>
 
+<p><strong>Creator:</strong> {{item.created_by_id}}</p>
+
+<form method="POST" action="{{url_for('main.add_to_shopping_list', item_id=item.id)}}">
+    {{form.csrf_token}}
+    <fieldset>
+      <legend>Add to shopping list</legend>
+      {{ form.submit }}
+    </fieldset>
+  </form>
+  <h2>Edit Item</h2>
+  
+
 <form method="POST" action="{{url_for('main.item_detail', item_id=item.id)}}">
     {{form.csrf_token}}
     <fieldset>
